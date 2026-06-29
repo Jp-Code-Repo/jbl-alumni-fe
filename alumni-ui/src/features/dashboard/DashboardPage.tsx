@@ -1,4 +1,4 @@
-import { CalendarDays, GraduationCap, Users, UserCheck } from "lucide-react";
+import { dashboardStats } from "./data/dashboard-data";
 
 import PageHeader from "./components/PageHeader";
 import StatsCard from "./components/StatsCard";
@@ -13,29 +13,18 @@ export default function DashboardPage() {
       />
 
       <StatsGrid>
-        <StatsCard
-          title="Total Alumni"
-          value="12,543"
-          icon={<Users className="h-5 w-5 text-muted-foreground" />}
-        />
+        {dashboardStats.map((stat) => {
+          const Icon = stat.icon;
 
-        <StatsCard
-          title="Registered Alumni"
-          value="8,934"
-          icon={<GraduationCap className="h-5 w-5 text-muted-foreground" />}
-        />
-
-        <StatsCard
-          title="Upcoming Events"
-          value="12"
-          icon={<CalendarDays className="h-5 w-5 text-muted-foreground" />}
-        />
-
-        <StatsCard
-          title="Verified Alumni"
-          value="7,856"
-          icon={<UserCheck className="h-5 w-5 text-muted-foreground" />}
-        />
+          return (
+            <StatsCard
+              key={stat.title}
+              title={stat.title}
+              value={stat.value}
+              icon={<Icon className="h-5 w-5 text-muted-foreground" />}
+            />
+          );
+        })}
       </StatsGrid>
     </div>
   );
