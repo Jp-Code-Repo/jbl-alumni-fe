@@ -5,9 +5,12 @@ import { RouterProvider } from "@tanstack/react-router";
 import "./index.css";
 
 import { router } from "@/app/router";
+import AppProviders from "@/app/providers/AppProviders";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AppProviders>
+      <RouterProvider router={router} />
+    </AppProviders>
   </StrictMode>
 );
