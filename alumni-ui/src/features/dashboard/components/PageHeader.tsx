@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import ThemeToggle from "@/components/common/ThemeToggle";
+
 type PageHeaderProps = {
   title: string;
   description?: string;
@@ -25,11 +27,10 @@ export default function PageHeader({
         )}
       </div>
 
-      {actions && (
-        <div>
-          {actions}
-        </div>
-      )}
+      <div className="flex items-center gap-2">
+        {actions}
+        <ThemeToggle />
+      </div>
     </div>
   );
 }
